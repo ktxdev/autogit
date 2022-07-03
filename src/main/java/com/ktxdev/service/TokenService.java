@@ -1,5 +1,8 @@
 package com.ktxdev.service;
 
+import com.ktxdev.exceptions.ConfigNotSetException;
+import com.ktxdev.exceptions.InvalidArgsException;
+
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -26,6 +29,8 @@ public class TokenService {
         try(InputStream stream = new FileInputStream(authPropertiesFilePath.toFile())) {
             String token = new String(stream.readAllBytes());
             return token.split(TOKEN_SEPARATOR)[1];
+        } catch (FileNotFoundException ex) {
+            throw new ConfigNotSetException("Token not set. Please set one using config.token=<TOKEN>");
         }
     }
 }
