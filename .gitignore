@@ -1,4 +1,2 @@
-/target/
-/.idea/
-/src/main/resources/authentication.properties
 /.authrc
+/autogit-env
