@@ -1,2 +1,3 @@
 /.authrc
 /autogit-env
+*.log
