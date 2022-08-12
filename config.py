@@ -5,8 +5,8 @@ AVAILABLE_CONFIG_OPTIONS = ['projects.dir']
 DEFAULT_PROJECTS_DIR = PurePath.joinpath(Path.home(), "Projects")
 CONFIG_FILE = Path.joinpath(Path.home(), ".autogitconfig")
 CONFIG_HELP_TEXT = "Usage: autogit config [--help] <key> <value> \
-                \nThese are common Autogit commands used in various situations: \
-                \n\tprojects.dir - Get and set projects directory"
+    \nThese are common Autogit commands used in various situations: \
+    \n\tprojects.dir - Get and set projects directory"
 
 
 def setup() -> None:
