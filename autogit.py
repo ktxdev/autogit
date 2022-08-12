@@ -113,6 +113,7 @@ def main():
 
             # element = driver.find_element(By.CLASS_NAME, 'btn')
             element.submit()
+            driver.close()
 
             # Create a ReadMe.md file
             readme_file = Path.joinpath(project_dir, "README.md")
