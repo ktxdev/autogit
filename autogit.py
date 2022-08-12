@@ -1,8 +1,9 @@
-from ast import arg
-from asyncio import subprocess
 import os
-from pathlib import Path
+import subprocess
+
 from sys import argv
+from pathlib import Path
+
 from config import setup, get_configs, write_configs, CONFIG_HELP_TEXT, AVAILABLE_CONFIG_OPTIONS, PROJECTS_DIR_KEY
 
 GITHUB_LOGIN_URL = "https://github.com/login"
@@ -73,7 +74,7 @@ def main():
 
             if project_dir.exists():
                 if argv.__contains__("-f"):
-                    project_dir.rmdir()
+                    subprocess.call(["rm","-r",project_dir])
                 else:
                     print("Another project with same name already exists")
                     return
@@ -85,6 +86,7 @@ def main():
             readme_file = Path.joinpath(project_dir, "README.md")
             readme_file.touch()
             # Initialize a git repository
+            subprocess.call(["git", "init"])
             # Create a repo on github
             # Add the remote to local project
             # Make initial commit
