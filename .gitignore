@@ -1,4 +1,5 @@
 /.authrc
 /autogit-env
 *.log
-__pycache__/config.cpython-310.pyc
+*.cpython-310.pyc
+autogit.py
