@@ -26,11 +26,12 @@ ACTIONS_HELP_TEXT = "Usage: autogit [--help] <command> [<args>]\
 
 def main():
     config = Config()
+    
+    action = argv[1]
+
     if len(argv) < 2:
         print("Invalid number of arguments for action:", action)
         return
-
-    action = argv[1]
 
     if action == '--help':
         print(ACTIONS_HELP_TEXT)
