@@ -15,6 +15,7 @@ from git import Git
 from config import Config
 from github import Github
 
+VERSION = "v1.0"
 GITHUB_LOGIN_URL = "https://github.com/login"
 NEW_REPO_GITHUB_URL = "https://github.com/new"
 AVAILABLE_ACTIONS = ['config', 'create', '--help']
@@ -31,6 +32,10 @@ def main():
 
     if len(argv) < 2:
         print("Invalid number of arguments for action:", action)
+        return
+
+    if action == '--version' or action == '-v':
+        print(VERSION)
         return
 
     if action == '--help':
@@ -97,7 +102,7 @@ def main():
             os.chdir(project_dir)
             # Initialize a git repository
             Git.initialize_repo()
-            # Create a repo on github
+            # Create a repo on GitHub
             username = input('GitHub username:')
             password = input('GitHub password:')
             Github(username, password).create_repo(project_name)
@@ -109,7 +114,7 @@ def main():
             readme_file.write_text('# ' + project_name)
             # Make initial commit
             Git.commit("Initial commit")
-            # Push to github
+            # Push to GitHub
             Git.push()
 
 

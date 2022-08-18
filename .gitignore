@@ -2,3 +2,4 @@
 /autogit-env
 *.log
 *.cpython-310.pyc
+/.idea
